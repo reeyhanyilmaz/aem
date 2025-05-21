@@ -297,17 +297,22 @@ main .section.highlight {
     align-items: center;
     flex-direction: column;
 
-    h1 {
-      color: #fff;
-      font-weight: 500;
+    ul {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+      h1 {
+        color: #fff;
+        font-weight: 500;
+      }
+
+      a {
+        background-color: #003764;
+        padding: 10px 50px;
+        font-size: 20px;
+        font-weight: 300;
+      }
     }
 
-    a {
-      background-color: #003764;
-      padding: 10px 50px;
-      font-size: 20px;
-      font-weight: 300;
-    }
   }
 }
 
@@ -342,7 +347,7 @@ main .section.highlight {
 /* solutions part end */
 
 /* awards part */
-section.awards.cards-container {
+.section.awards.cards-container {
   .default-content-wrapper {
 
     h3 {
@@ -355,10 +360,31 @@ section.awards.cards-container {
   }
 
   .cards-wrapper {
-    .cards-card-body {
-      h4 {
-        color: #666666;
-        font-weight: 500;
+
+    ul {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+      .cards-card-body {
+        h4 {
+          color: #666666;
+          font-weight: 500;
+          font-family: Georgia, serif;
+          font-size: 18px;
+          line-height: 1.4;
+          min-height: 50px;
+        }
+
+        p {
+          font-family: Georgia, serif;
+          font-size: 15px;
+          color: #666666;
+        }
+
+        p:last-child {
+          color: #13bfd6;
+          font-size: 15px;
+          letter-spacing: 0.03em;
+        }
       }
     }
   }
@@ -371,7 +397,55 @@ section.awards.cards-container {
   background-image: url("/assets/bg-tech.png");
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 150px 140px;
+  background-attachment: fixed;
+  padding: 50px 20px;
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+  }
+
+  .title .line {
+    position: relative;
+    display: inline-block;
+    margin: 0 4px;
+    color: #999;
+  }
+
+  .title .line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 3px solid #ff3366;
+    transform: rotate(-15deg);
+  }
+
 }
 
 /* logos part end*/
+
+/* about us part */
+.section.about-us {
+  .default-content-wrapper {
+    max-width: 1140px;
+
+    h3 {
+      color: #003764;
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 20px;
+      font-family: "proxima", serif;
+      font-weight: 400;
+    }
+  }
+}
