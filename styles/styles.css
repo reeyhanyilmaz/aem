@@ -341,6 +341,30 @@ main .section.highlight {
 
 /* solutions part end */
 
+/* awards part */
+section.awards.cards-container {
+  .default-content-wrapper {
+
+    h3 {
+      color: #003764;
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  .cards-wrapper {
+    .cards-card-body {
+      h4 {
+        color: #666666;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* awards part end */
 
 /* logos part */
 .section.logos-part {
