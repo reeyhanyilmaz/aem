@@ -297,22 +297,17 @@ main .section.highlight {
     align-items: center;
     flex-direction: column;
 
-    ul {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-      h1 {
-        color: #fff;
-        font-weight: 500;
-      }
-
-      a {
-        background-color: #003764;
-        padding: 10px 50px;
-        font-size: 20px;
-        font-weight: 300;
-      }
+    h1 {
+      color: #fff;
+      font-weight: 500;
     }
 
+    a {
+      background-color: #003764;
+      padding: 10px 50px;
+      font-size: 20px;
+      font-weight: 300;
+    }
   }
 }
 
