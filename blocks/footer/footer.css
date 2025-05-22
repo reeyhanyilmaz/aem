@@ -1,9 +1,8 @@
 footer {
-  background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
   background: #2d3947;
   padding: 35px 0;
-  color: #ffffff;
+  color: #fff;
   text-align: start;
 
   .section.cards-container {
@@ -19,7 +18,7 @@ footer {
 
           p {
             font-size: 15px;
-            margin-top: 10px;
+            margin: 10px 0 0;
 
             strong {
               color: #ffce29;
@@ -38,8 +37,4 @@ footer {
 footer .footer>div {
   margin: auto;
   max-width: 1200px;
-}
-
-footer .footer p {
-  margin: 0;
 }

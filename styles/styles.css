@@ -330,7 +330,6 @@ main .section.highlight {
     margin-bottom: 40px;
   }
 
-
   .cards-card-body {
     strong {
       color: #003764;
@@ -348,45 +347,41 @@ main .section.highlight {
 
 /* awards part */
 .section.awards.cards-container {
-  .default-content-wrapper {
-
-    h3 {
-      color: #003764;
-      font-size: 36px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 40px;
-    }
+  h3 {
+    color: #003764;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
-  .cards-wrapper {
 
-    ul {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-      .cards-card-body {
-        h4 {
-          color: #666666;
-          font-weight: 500;
-          font-family: Georgia, serif;
-          font-size: 18px;
-          line-height: 1.4;
-          min-height: 50px;
-        }
+  ul {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-        p {
-          font-family: Georgia, serif;
-          font-size: 15px;
-          color: #666666;
-        }
-
-        p:last-child {
-          color: #13bfd6;
-          font-size: 15px;
-          letter-spacing: 0.03em;
-        }
-      }
+    h4 {
+      color: #666;
+      font-weight: 500;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      line-height: 1.4;
+      min-height: 50px;
     }
+
+
+  }
+
+  p {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: #666;
+  }
+
+  :nth-child(3) {
+    color: #13bfd6;
+    font-size: 15px;
+    letter-spacing: 0.03em;
   }
 }
 
@@ -420,13 +415,13 @@ main .section.highlight {
     left: 0;
     right: 0;
     top: 50%;
-    border-top: 3px solid #ff3366;
+    border-top: 3px solid #f36;
     transform: rotate(-15deg);
   }
 
 }
 
-/* logos part end*/
+/* logos part end */
 
 /* about us part */
 .section.about-us {
@@ -442,9 +437,8 @@ main .section.highlight {
     }
 
     p {
-      color: #666666;
+      color: #666;
       font-size: 20px;
-      font-family: "proxima", serif;
       font-weight: 400;
     }
   }
