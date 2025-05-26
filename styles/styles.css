@@ -348,7 +348,7 @@ main .section.highlight {
   .cards>ul>li:hover {
     background-color: #13bfd6;
     color: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px rgb(0 0 0 / 15%);
     transform: none;
   }
 
