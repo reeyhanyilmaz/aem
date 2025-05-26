@@ -396,13 +396,12 @@ main .section.highlight {
       min-height: 50px;
     }
 
-    :nth-child(3) {
+    .cards-card-body :nth-child(3) {
       color: #13bfd6;
       font-size: 15px;
       letter-spacing: 0.03em;
     }
   }
-
 }
 
 /* awards part end */
