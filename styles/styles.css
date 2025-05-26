@@ -10,7 +10,29 @@
  * governing permissions and limitations under the License.
  */
 
+/* Font Faces */
+@font-face {
+  font-family: Proxima;
+  src: local('Proxima Nova'), local('ProximaNova-Regular'),
+    url('/fonts/proxima-nova-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: local('Proxima Nova Bold'), local('ProximaNova-Bold'),
+    url('/fonts/proxima-nova-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  /* Typography */
+  --font-family-base: 'Proxima Nova', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
+
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
@@ -20,8 +42,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Proxima', var(--font-family-base);
+  --heading-font-family: 'Proxima', var(--font-family-base);
 
   /* body sizes */
   --body-font-size-m: 22px;
