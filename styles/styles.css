@@ -347,12 +347,23 @@ main .section.highlight {
     margin-bottom: 40px;
   }
 
+  .cards>ul {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+
+  }
+
   .cards>ul>li {
     position: relative;
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     color: #333;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .cards-card-body {
