@@ -55,6 +55,7 @@ export default function initCarousel() {
       <style>
         .section.carousel-part .main-block{
           max-width: 100% !important;
+          background-color: #eaeef2 !important;
         }
 
         .carousel-container {
