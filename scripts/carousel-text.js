@@ -53,6 +53,10 @@ export default function initCarousel() {
         </div>
       </div>
       <style>
+        .section.carousel-part .main-block{
+          max-width: 100% !important;
+        }
+
         .carousel-container {
           width: 100%;
           overflow: hidden;
@@ -78,7 +82,6 @@ export default function initCarousel() {
           max-width: 100%;
           height: auto;
           transition: all 0.3s ease;
-          filter: grayscale(100%);
           opacity: 0.7;
         }
         
