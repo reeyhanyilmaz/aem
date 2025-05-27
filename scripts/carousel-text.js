@@ -1,4 +1,4 @@
-/* global jQuery, WOW */
+/* global WOW */
 /* eslint-disable */
 // Logo list - you can add more logos here
 const logos = [
@@ -19,78 +19,108 @@ export default function initCarousel() {
   const carouselSections = document.querySelectorAll(".section.carousel-part");
 
   carouselSections.forEach((section) => {
-    // Create carousel container
+    // Create carousel container with infinite scroll
     const carouselHTML = `
       <div class="main-block home-carousel">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12">
-              <div class="lightSlider" id="logo-carousel">
-                ${logos
-                  .map(
-                    (logo, index) => `
-                  <figure class="item wow fadeInUp" data-wow-duration="1s" data-wow-delay="${
-                    (index + 1) * 0.1
-                  }s">
-                    <img 
-                      data-alt-src="/assets/images/hover/logo-${logo.name}.png" 
-                      src="/assets/images/logo-${logo.name}.png" 
-                      class="img-fluid" 
-                      alt="${logo.alt}"
-                      onmouseover="this.src=this.getAttribute('data-alt-src')"
-                      onmouseout="this.src=this.src.replace('hover/', '')"
-                    />
-                  </figure>
-                `
-                  )
-                  .join("")}
+              <div class="carousel-container">
+                <div class="carousel-track">
+                  ${[...Array(2)]
+                    .map(() =>
+                      logos
+                        .map(
+                          (logo, index) => `
+                        <div class="carousel-item">
+                          <img 
+                            src="/assets/images/logo-${logo.name}.png" 
+                            class="img-fluid" 
+                            alt="${logo.alt}"
+                            onmouseover="this.src='/assets/images/hover/logo-${logo.name}.png'"
+                            onmouseout="this.src='/assets/images/logo-${logo.name}.png'"
+                          />
+                        </div>
+                      `
+                        )
+                        .join("")
+                    )
+                    .join("")}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <style>
+        .carousel-container {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+          padding: 20px 0;
+        }
+        
+        .carousel-track {
+          display: flex;
+          animation: scroll 30s linear infinite;
+          width: calc(150px * ${logos.length * 2});
+        }
+        
+        .carousel-item {
+          flex: 0 0 150px;
+          padding: 0 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .carousel-item img {
+          max-width: 100%;
+          height: auto;
+          transition: all 0.3s ease;
+          filter: grayscale(100%);
+          opacity: 0.7;
+        }
+        
+        .carousel-item img:hover {
+          filter: grayscale(0%);
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-150px * ${logos.length}));
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .carousel-item {
+            flex: 0 0 100px;
+            padding: 0 10px;
+          }
+          
+          .carousel-track {
+            width: calc(100px * ${logos.length * 2});
+          }
+          
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-100px * ${logos.length}));
+            }
+          }
+        }
+      </style>
     `;
 
     // Set the HTML
     section.innerHTML = carouselHTML;
-
-    // Initialize lightSlider if it's available
-    if (window.jQuery && window.jQuery.fn.lightSlider) {
-      jQuery("#logo-carousel").lightSlider({
-        item: 5,
-        loop: true,
-        slideMove: 1,
-        easing: "cubic-bezier(0.25, 0, 0.25, 1)",
-        speed: 600,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              item: 4,
-              slideMove: 1,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              item: 3,
-              slideMove: 1,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              item: 2,
-              slideMove: 1,
-            },
-          },
-        ],
-        auto: true,
-        pauseOnHover: true,
-        controls: false,
-        pager: false,
-      });
-    }
   });
 
   // Initialize WOW.js if it's available
