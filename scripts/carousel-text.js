@@ -46,12 +46,12 @@ export default function initCarousel() {
                 <div class="carousel-nav">
                   <button class="carousel-arrow carousel-prev" aria-label="Previous">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M15 18L9 12L15 6" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15 18L9 12L15 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
                   <button class="carousel-arrow carousel-next" aria-label="Next">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 18L15 12L9 6" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 18L15 12L9 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </button>
                 </div>
@@ -88,8 +88,8 @@ export default function initCarousel() {
         }
         
         .carousel-arrow {
-          background: #fff;
-          border: none;
+          background: transparent;
+          border: 2px solid #fff;
           border-radius: 50%;
           width: 40px;
           height: 40px;
@@ -97,7 +97,6 @@ export default function initCarousel() {
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
           transition: all 0.2s ease;
           padding: 0;
           margin: 0;
@@ -106,9 +105,8 @@ export default function initCarousel() {
         }
         
         .carousel-arrow:hover {
-          background: #f5f5f5;
+          background: rgba(255, 255, 255, 0.1);
           transform: scale(1.05);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
         .carousel-arrow:active {
