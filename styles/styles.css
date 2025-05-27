@@ -408,7 +408,7 @@ main .section.highlight {
     margin-bottom: 40px;
   }
 
-  ul {
+  .cards ul {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     font-family: Georgia, serif;
     font-size: 15px;
