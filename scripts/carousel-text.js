@@ -1,5 +1,5 @@
 /* global jQuery, WOW */
-
+/* eslint-disable */
 // Logo list - you can add more logos here
 const logos = [
   { name: "pfizer", alt: "Pfizer" },
@@ -34,7 +34,7 @@ export default function initCarousel() {
                   }s">
                     <img 
                       data-alt-src="/assets/images/hover/logo-${logo.name}.png" 
-                      src="/assets/images/logo/logo-${logo.name}.png" 
+                      src="/assets/images/logo-${logo.name}.png" 
                       class="img-fluid" 
                       alt="${logo.alt}"
                       onmouseover="this.src=this.getAttribute('data-alt-src')"

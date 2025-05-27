@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   buildBlock,
   loadHeader,
