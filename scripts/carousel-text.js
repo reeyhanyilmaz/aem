@@ -27,7 +27,9 @@ export default function initCarousel() {
             <div class="col-sm-12">
               <div class="carousel-container">
                 <div class="carousel-track">
-                  ${logos.map((logo, index) => `
+                  ${logos
+                    .map(
+                      (logo, index) => `
                     <div class="carousel-item">
                       <img 
                         src="/assets/images/logo-${logo.name}.png" 
@@ -37,7 +39,9 @@ export default function initCarousel() {
                         onmouseout="this.src='/assets/images/logo-${logo.name}.png'"
                       />
                     </div>
-                  `).join('')}
+                  `
+                    )
+                    .join("")}
                 </div>
               </div>
             </div>
@@ -48,6 +52,7 @@ export default function initCarousel() {
         .section.carousel-part .main-block {
           max-width: 100% !important;
           background-color: #eaeef2 !important;
+          padding: 0 !important;
         }
 
         .carousel-container {
@@ -69,7 +74,6 @@ export default function initCarousel() {
           align-items: center;
           justify-content: center;
           transition: all 0.3s ease;
-          opacity: 0.7;
         }
         
         .carousel-item img:hover {
@@ -89,52 +93,70 @@ export default function initCarousel() {
 
     // Set the HTML
     section.innerHTML = carouselHTML;
-    
+
     // Get the carousel track element
-    const track = section.querySelector('.carousel-track');
-    const items = section.querySelectorAll('.carousel-item');
+    const track = section.querySelector(".carousel-track");
+    const items = section.querySelectorAll(".carousel-item");
     const itemWidth = 150; // Width of each item including padding
     let currentIndex = 0;
-    
-    // Clone first few items and append to end for infinite effect
-    const firstItems = Array.from(items).slice(0, 5).map(item => item.cloneNode(true));
-    firstItems.forEach(item => track.appendChild(item));
-    
+    let isTransitioning = false;
+
+    // Clone all items and append to end for infinite effect
+    const clonedItems = Array.from(items).map((item) => item.cloneNode(true));
+    clonedItems.forEach((item) => track.appendChild(item));
+
+    // Set initial position
+    track.style.transform = "translateX(0)";
+
     // Function to move to next slide
     function nextSlide() {
-      currentIndex = (currentIndex + 1) % (items.length + 1);
-      
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      currentIndex++;
+      track.style.transition = "transform 0.5s ease-in-out";
+      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
       // If we've reached the cloned items, reset position without animation
-      if (currentIndex === items.length) {
+      if (currentIndex >= items.length) {
         setTimeout(() => {
-          track.style.transition = 'none';
-          track.style.transform = 'translateX(0)';
+          track.style.transition = "none";
+          track.style.transform = "translateX(0)";
           // Force reflow
           track.offsetHeight;
           currentIndex = 0;
-          // Re-enable transition
-          setTimeout(() => {
-            track.style.transition = 'transform 0.5s ease-in-out';
-          }, 50);
+          isTransitioning = false;
+        }, 500);
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
         }, 500);
       }
-      
-      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
     }
-    
+
     // Start the carousel
-    const slideInterval = setInterval(nextSlide, 2000);
-    
+    let slideInterval = setInterval(nextSlide, 2000);
+
     // Pause on hover
-    const container = section.querySelector('.carousel-container');
-    container.addEventListener('mouseenter', () => {
+    const container = section.querySelector(".carousel-container");
+    const pauseCarousel = () => {
       clearInterval(slideInterval);
-    });
-    
-    container.addEventListener('mouseleave', () => {
+    };
+
+    const resumeCarousel = () => {
       clearInterval(slideInterval);
       slideInterval = setInterval(nextSlide, 2000);
-    });
+    };
+
+    container.addEventListener("mouseenter", pauseCarousel);
+    container.addEventListener("mouseleave", resumeCarousel);
+
+    // Cleanup on section unload
+    section.cleanup = () => {
+      clearInterval(slideInterval);
+      container.removeEventListener("mouseenter", pauseCarousel);
+      container.removeEventListener("mouseleave", resumeCarousel);
+    };
   });
 
   // Initialize WOW.js if it's available
