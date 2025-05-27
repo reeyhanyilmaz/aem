@@ -283,4 +283,9 @@ header nav .nav-sections ul>li>ul>li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+
+  .default-content-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
 }
