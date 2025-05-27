@@ -129,7 +129,7 @@ async function loadLazy(doc) {
   loadFonts();
 
   // Initialize logo carousel
-  const { default: initCarousel } = await import("./carousel-text.js");
+  const { default: initCarousel } = await import("./carousel-part.js");
   initCarousel();
 }
 
